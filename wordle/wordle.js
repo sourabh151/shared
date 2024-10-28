@@ -88,7 +88,7 @@ console.log(spit());
 async function main(){
     while (list.length > 1) {
         const ans = await askQuestion("enter next hint:\n");
-        console.log(spit(ans));;
+        console.log(spit(ans));
     }
 }
 main();

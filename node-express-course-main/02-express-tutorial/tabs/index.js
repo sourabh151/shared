@@ -5,7 +5,7 @@ async function start() {
     const list = products.map(product => {
         return `<li class = "item item-${product.id}"><a href = "/">${product.name}</a></li>`;
     });
-    const links = document.querySelector("li");
+    const links = document.querySelector();
     console.log(links);
     //console.log(list);
 
