@@ -14,8 +14,13 @@ customEmitter.on('response', (name, id) => {
   console.log(`data recieved user ${name} with id:${id}`)
 })
 
+customEmitter.on('response', (name, id, ...others ) => {
+  console.log(`data recieved user ${name} with id:${id}`)
+  console.log("others are :- ",others);
+})
+
 customEmitter.on('response', () => {
   console.log('some other logic here')
 })
 
-customEmitter.emit('response', 'john', 34)
+customEmitter.emit('response', 'john', 34,1,1,2,3)
