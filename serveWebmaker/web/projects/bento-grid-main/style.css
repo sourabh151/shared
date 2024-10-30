@@ -1,0 +1,143 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+@font-face {
+  font-family: DM Sans;
+  src: url("./assets/fonts/static/DMSans-Medium.ttf") format("truetype"),
+    url("./assets/fonts/static/DMSans-Mediumitalic.ttf") format("truetype"),
+    url("./assets/fonts/static/DMSans-Regular.ttf") format("truetype");
+}
+
+body {
+  font-size: 10px;
+  font-family: "DM Sans";
+  --Purple-100: hsl(254, 88%, 90%);
+  --Purple-500: hsl(256, 67%, 59%);
+
+  --Yellow-100: hsl(31, 66%, 93%);
+  --Yellow-500: hsl(39, 100%, 71%);
+
+  --White: hsl(0, 0%, 100%);
+  --Black: hsl(0, 0%, 7%);
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(4, min-max(30rem, 1fr));
+  grid-template-rows: repeat(4, min-max(15rem, 1fr));
+  padding: 3rem 1.5rem;
+  background-color: rgb(240, 240, 240);
+}
+.box {
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+}
+.box-1 {
+  background-color: var(--Purple-500);
+  padding: 3rem 1.5rem;
+}
+.box-1 h1 {
+  font-size: 5rem;
+  color: var(--White);
+}
+.box-1 span {
+  color: var(--Yellow-500);
+}
+.box-1 p {
+  color: var(--Purple-100);
+  font-size:1.8rem;
+}
+.box-2 {
+  background-color: var(--White);
+  padding: 2rem;
+}
+.box-2 h3 {
+  font-size: 3rem;
+  text-align: left;
+}
+.box-3 {
+  background-color: var(--Yellow-500);
+  padding: 2rem;
+  padding-bottom: 0rem;
+  text-align: left;
+}
+.box-3 h3 {
+  font-size: 3rem;
+  text-align: left;
+}
+.box-4 {
+  background-color: var(--Purple-100);
+  padding: 3rem 1rem;
+}
+.box-4 h3 {
+  font-size: 3rem;
+}
+.box-4 img {
+  padding-block: 2rem;
+}
+.box-4 p {
+  color: var(--Black);
+  font-size: 1.8rem;
+}
+.box-5 {
+  background-color: var(--Purple-500);
+  padding: 2rem 8rem;
+}
+.box-5 h2 {
+  color: var(--White);
+  font-size: 3.5rem;
+}
+.box-5 img{
+    padding-bottom: 2rem;
+}
+.box-6 {
+  background-color: var(--White);
+  text-align: left;
+  padding: 2rem;
+}
+
+.box-6 p {
+  font-size: 1.8rem;
+}
+.box-6 h2 {
+  font-size: 5rem;
+}
+.box-6 img {
+  padding-top: 2rem;
+}
+.box-7 {
+  padding: 3rem 5rem;
+  background-color: var(--Yellow-100);
+  text-align: left;
+}
+.box-7 h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+.box-7 h2 span {
+  color: var(--Purple-500);
+  font-style: italic;
+}
+.box-7 img {
+  padding-top: 2rem;
+}
+.box-8 {
+  background-color: var(--Yellow-500);
+  text-align: left;
+  padding: 2rem;
+}
+.box-8 h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+.box-8 img{
+    padding-top: 2rem;
+}
