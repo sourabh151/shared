@@ -1,19 +1,34 @@
 // console.log('Express Tutorial');
 const express = require("express");
+const http = require('http');
+const {people} = require('./data');
+// const morgan  = require('morgan');
 const app = express();
 
-const {products} = require("./data")
-
-app.use(express.static('./tabs'))
-
-app.get('/',(req,res)=>{
-    res.status(200).send('hello brotha');
+// app.use(express.static('./methods-public'));
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.post('/login',(req,res)=>{
+    let id = people.length;
+    ++id;
+    people.push({id:id,...req.body});
+    console.log(people);
+    res.send('hello');
 })
-app.get('/api/products',(req,res)=>{
-    res.status(200).json(products);
-})
-app.all('*',(req,res)=>{
-    res.status(404).send('resource not found');
+app.put('/api/people/:id',(req,res)=>{
+    if(!req.params.id){
+        res.status(http.STATUS_CODES["modified"]).json({"success":false,"msg":"please provide valid id"});
+    }
+    if(!req.body.name){
+        res.json({"success":false,"msg":"please provide valid name"});
+    }
+    const newPeople = people.map((person)=>{
+        if(person.id === Number(req.params.id)){
+            person.name = req.body.name;
+        }
+        return person;
+    });
+    res.json({"success":true,data:newPeople});
 })
 app.listen(5000,()=>{
     console.log("server is listening on port 5000");
