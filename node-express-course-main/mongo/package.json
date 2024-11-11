@@ -1,16 +1,16 @@
 {
-  "name": "shared",
+  "name": "mongo",
   "version": "1.0.0",
-  "description": "Some Description!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "express": "^4.21.1",
-    "http-status-codes": "^2.3.0"
+    "mongodb": "^6.10.0"
   }
 }
