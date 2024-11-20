@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from mongoosejs.com/docs/tutorials/getters-setters.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Apr 2022 10:54:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Mongoose v6.3.0: Mongoose Tutorials: Getters/Setters in Mongoose</title><link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"><link rel="stylesheet" href="../../../unpkg.com/purecss%401.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"><link rel="stylesheet" href="../../../fonts.googleapis.com/cssd2d5.css?family=Open+Sans"><link rel="stylesheet" href="../css/github.css"><link rel="stylesheet" href="../css/mongoose5.css"><link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png"><link rel="manifest" href="images/favicon/manifest.html"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="../css/inlinecpc.css"><script type="text/javascript" src="../../../m.servedby-buysellads.com/monetization.custom.js"></script><style>p { line-height: 1.5em }
+</style></head><body><div id="layout"><div id="mobile-menu"><a class="menu-link" id="menuLink" href="#menu"><span></span></a><div id="mobile-logo-container"><a href="../../index.html"><img id="logo" src="../images/mongoose5_62x30_transparent.png"><span class="logo-text">mongoose</span></a></div></div><div id="menu"><div class="pure-menu"><div class="pure-menu-heading" id="logo-container"><a href="../../index.html"><img id="logo" src="../images/mongoose5_62x30_transparent.png"><span class="logo-text">mongoose</span></a></div><ul class="pure-menu-list" id="navbar"><li class="pure-menu-horizontal pure-menu-item pure-menu-has-children pure-menu-allow-hover version"><a class="pure-menu-link" href="#">Version 6.3.0</a><ul class="pure-menu-children"><li class="pure-menu-item"><a class="pure-menu-link" href="../5.x/index.html">Version 5.13.14</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../4.x/index.html">Version 4.13.21</a></li></ul></li><li class="pure-menu-item search"><input id="search-input-nav" type="text" placeholder="Search"><button id="search-button-nav"><img src="../images/search.svg"></button></li><li class="pure-menu-item"><a class="pure-menu-link" href="../index.html">Quick Start</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../guides.html">Guides</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../guide.html">Schemas</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../schematypes.html">SchemaTypes</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../connections.html">Connections</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../models.html">Models</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../documents.html">Documents</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../subdocs.html">Subdocuments</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../queries.html">Queries</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../validation.html">Validation</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../middleware.html">Middleware</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../populate.html">Populate</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../discriminators.html">Discriminators</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../plugins.html">Plugins</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../timestamps.html">Timestamps</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../transactions.html">Transactions</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../typescript.html">TypeScript</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../api.html">API</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/mongoose.html">Mongoose</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/schema.html">Schema</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/connection.html">Connection</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/document.html">Document</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/model.html">Model</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/query.html">Query</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/aggregate.html">Aggregate</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/schematype.html">SchemaType</a></li><li class="pure-menu-item sub-item"><a class="pure-menu-link" href="../api/virtualtype.html">VirtualType</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../migrating_to_6.html">Migration Guide</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../compatibility.html">Version Compatibility</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../faq.html">FAQ</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../further_reading.html">Further Reading</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../enterprise.html">For Enterprise</a></li><li class="pure-menu-item"><a class="pure-menu-link" href="../sponsors.html" >Sponsors</a></li></ul><div class="cpc-ad"><script async type="text/javascript" src="../../../cdn.carbonads.com/carbona77d.js?serve=CKYIL27I&amp;placement=mongoosejscom" id="_carbonads_js"></script></div></div></div><div class="container"><div id="content"><a class="edit-docs-link" href="https://github.com/Automattic/mongoose/blob/master/docs/tutorials/getters-setters.md" target="_blank">
+<img src="../images/pencil.svg" />
+</a><h1 id="getterssetters-in-mongoose">
+      <a href="#getterssetters-in-mongoose">
+        Getters/Setters in Mongoose
+      </a>
+    </h1>
+<div id="native-direct"></div>
+<script>
+    (function() {
+        if (typeof _bsa !== 'undefined' && _bsa) {
+            _bsa.init('custom', 'CK7DT53U', 'placement:mongoosejscom', {
+                target: '#native-direct',
+                template: `
+<div class="native-inline">
+<a rel="sponsored noopener" target="_blank" href="##statlink##" title="##company## — ##tagline##"><span class="sponsor">Sponsor</span> ##company## — ##description##</a>
+</div>
+</a>
+`
+            });
+        }
+    })();
+</script>
+
+<p>Mongoose getters and setters allow you to execute custom logic when getting or setting a property on a <a href="../documents.html">Mongoose document</a>. Getters let you transform data in MongoDB into a more user friendly form, and setters let you transform user data before it gets to MongoDB.</p>
+<h2 id="getters">
+      <a href="#getters">
+        Getters
+      </a>
+    </h2>
+<p>Suppose you have a <code>User</code> collection and you want to obfuscate user emails to protect your users&#39; privacy. Below is a basic <code>userSchema</code> that obfuscates the user&#39;s email address.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Schema</span>({
+  <span class="hljs-attr">email</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">get</span>: obfuscate
+  }
+});
+
+<span class="hljs-comment">// Mongoose passes the raw value in MongoDB `email` to the getter</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">obfuscate</span>(<span class="hljs-params">email</span>) {
+  <span class="hljs-keyword">const</span> separatorIndex = email.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;@&#x27;</span>);
+  <span class="hljs-keyword">if</span> (separatorIndex &lt; <span class="hljs-number">3</span>) {
+    <span class="hljs-comment">// &#x27;ab@gmail.com&#x27; -&gt; &#x27;**@gmail.com&#x27;</span>
+    <span class="hljs-keyword">return</span> email.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, separatorIndex).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/./g</span>, <span class="hljs-string">&#x27;*&#x27;</span>) +
+      email.<span class="hljs-title function_">slice</span>(separatorIndex);
+  }
+  <span class="hljs-comment">// &#x27;test42@gmail.com&#x27; -&gt; &#x27;te****@gmail.com&#x27;</span>
+  <span class="hljs-keyword">return</span> email.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) +
+    email.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>, separatorIndex).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/./g</span>, <span class="hljs-string">&#x27;*&#x27;</span>) +
+    email.<span class="hljs-title function_">slice</span>(separatorIndex);
+}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">&#x27;User&#x27;</span>, userSchema);
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;ab@gmail.com&#x27;</span> });
+user.<span class="hljs-property">email</span>; <span class="hljs-comment">// **@gmail.com</span>
+</code></pre>
+<p>Keep in mind that getters do <strong>not</strong> impact the underlying data stored in
+MongoDB. If you save <code>user</code>, the <code>email</code> property will be &#39;<a href="mailto:&#97;&#98;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#97;&#98;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>&#39; in
+the database.</p>
+<p>By default, Mongoose executes getters when converting a document to JSON,
+including <a href="http://expressjs.com/en/4x/api.html#res.json">Express&#39; <code>res.json()</code> function</a>.</p>
+<pre><code class="language-javascript">app.<span class="hljs-title function_">get</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>().
+    <span class="hljs-comment">// The `email` getter will run here</span>
+    <span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">doc</span> =&gt;</span> res.<span class="hljs-title function_">json</span>(doc)).
+    <span class="hljs-keyword">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">json</span>({ <span class="hljs-attr">message</span>: err.<span class="hljs-property">message</span> }));
+});
+</code></pre>
+<p>To disable running getters when converting a document to JSON, set the <a href="../guide.html#toJSON"><code>toJSON.getters</code> option to <code>false</code> in your schema</a> as shown below.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Schema</span>({
+  <span class="hljs-attr">email</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">get</span>: obfuscate
+  }
+}, { <span class="hljs-attr">toJSON</span>: { <span class="hljs-attr">getters</span>: <span class="hljs-literal">false</span> } });
+</code></pre>
+<p>To skip getters on a one-off basis, use <a href="../api/document.html#document_Document-get"><code>user.get()</code> with the <code>getters</code> option set to <code>false</code></a> as shown below.</p>
+<pre><code class="language-javascript">user.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;email&#x27;</span>, <span class="hljs-literal">null</span>, { <span class="hljs-attr">getters</span>: <span class="hljs-literal">false</span> }); <span class="hljs-comment">// &#x27;ab@gmail.com&#x27;</span>
+</code></pre>
+<h2 id="setters">
+      <a href="#setters">
+        Setters
+      </a>
+    </h2>
+<p>Suppose you want to make sure all user emails in your database are lowercased to 
+make it easy to search without worrying about case. Below is an example
+<code>userSchema</code> that ensures emails are lowercased.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Schema</span>({
+  <span class="hljs-attr">email</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">set</span>: <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.<span class="hljs-title function_">toLowerCase</span>()
+  }
+});
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">&#x27;User&#x27;</span>, userSchema);
+
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;TEST@gmail.com&#x27;</span> });
+user.<span class="hljs-property">email</span>; <span class="hljs-comment">// &#x27;test@gmail.com&#x27;</span>
+
+<span class="hljs-comment">// The raw value of `email` is lowercased</span>
+user.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;email&#x27;</span>, <span class="hljs-literal">null</span>, { <span class="hljs-attr">getters</span>: <span class="hljs-literal">false</span> }); <span class="hljs-comment">// &#x27;test@gmail.com&#x27;</span>
+
+user.<span class="hljs-title function_">set</span>({ <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;NEW@gmail.com&#x27;</span> });
+user.<span class="hljs-property">email</span>; <span class="hljs-comment">// &#x27;new@gmail.com&#x27;</span>
+</code></pre>
+<p>Mongoose also runs setters on update operations, like <a href="../api/query.html#query_Query-updateOne"><code>updateOne()</code></a>. Mongoose will
+<a href="https://masteringjs.io/tutorials/mongoose/upsert">upsert a document</a> with a
+lowercased <code>email</code> in the below example.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">updateOne</span>({}, { <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;TEST@gmail.com&#x27;</span> }, { <span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-keyword">const</span> doc = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>();
+doc.<span class="hljs-property">email</span>; <span class="hljs-comment">// &#x27;test@gmail.com&#x27;</span>
+</code></pre>
+<p>In a setter function, <code>this</code> can be either the document being set or the query
+being run. If you don&#39;t want your setter to run when you call <code>updateOne()</code>,
+you add an if statement that checks if <code>this</code> is a Mongoose document as shown
+below.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Schema</span>({
+  <span class="hljs-attr">email</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
+    <span class="hljs-attr">set</span>: toLower
+  }
+});
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">toLower</span>(<span class="hljs-params">email</span>) {
+  <span class="hljs-comment">// Don&#x27;t transform `email` if using `updateOne()` or `updateMany()`</span>
+  <span class="hljs-keyword">if</span> (!(<span class="hljs-variable language_">this</span> <span class="hljs-keyword">instanceof</span> mongoose.<span class="hljs-property">Document</span>)) {
+    <span class="hljs-keyword">return</span> email;
+  }
+  <span class="hljs-keyword">return</span> email.<span class="hljs-title function_">toLowerCase</span>();
+}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">&#x27;User&#x27;</span>, userSchema);
+<span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">updateOne</span>({}, { <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;TEST@gmail.com&#x27;</span> }, { <span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-keyword">const</span> doc = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>();
+doc.<span class="hljs-property">email</span>; <span class="hljs-comment">// &#x27;TEST@gmail.com&#x27;</span>
+</code></pre>
+<h2 id="differences-vs-es6-getterssetters">
+      <a href="#differences-vs-es6-getterssetters">
+        Differences vs ES6 Getters/Setters
+      </a>
+    </h2>
+<p>Mongoose setters are different from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set">ES6 setters</a> because they allow you to transform the value being set. With ES6 setters, you
+would need to store an internal <code>_email</code> property to use a setter. With Mongoose,
+you do <strong>not</strong> need to define an internal <code>_email</code> property or define a 
+corresponding getter for <code>email</code>.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> {
+  <span class="hljs-comment">// This won&#x27;t convert the email to lowercase! That&#x27;s because `email`</span>
+  <span class="hljs-comment">// is just a setter, the actual `email` property doesn&#x27;t store any data.</span>
+  <span class="hljs-keyword">set</span> <span class="hljs-title function_">email</span>(<span class="hljs-params">v</span>) {
+    <span class="hljs-keyword">return</span> v.<span class="hljs-title function_">toLowerCase</span>();
+  }
+}
+
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>();
+user.<span class="hljs-property">email</span> = <span class="hljs-string">&#x27;TEST@gmail.com&#x27;</span>;
+
+user.<span class="hljs-property">email</span>; <span class="hljs-comment">// undefined</span>
+</code></pre>
+</div></div><script type="text/javascript">return;();
+xhr.open('POST.html', 'https://g0a3nbw0xa.execute-api.us-east-1.amazonaws.com/prod/track', true);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.onreadystatechange = function() {};
+xhr.send(JSON.stringify({
+  path: window.location.pathname,
+  hostname: window.location.hostname,
+  hash: window.location.hash
+}));</script><div id="jobs"><div class="job-listing"><a href="../../jobs61f0b0402d893554bc3a247f.html"><div class="company-logo"><img src="../../../images.ctfassets.net/3ouphkrynjol/3mfb7HH2YowrPxX9C6ik6H/723034bcb4e99349663c4bc8223fb8b6/localizejs.com.png"></div><div class="description"><div class="company">Localize</div><div class="title">Full Stack Engineer</div><div class="location">Anywhere</div></div></a></div><div class="button jobs-view-more"><a href="../jobs.html">View more jobs!</a></div></div><script type="text/javascript" src="../js/navbar-search.js"></script><script type="text/javascript">(function (window, document) {
+  var layout   = document.getElementById('layout'),
+      menu     = document.getElementById('menu'),
+      menuLink = document.getElementById('menuLink'),
+      content  = document.getElementById('content');
+
+  function toggleClass(element, className) {
+      var classes = element.className.split(/\s+/),
+          length = classes.length,
+          i = 0;
+
+      for(; i < length; i++) {
+        if (classes[i] === className) {
+          classes.splice(i, 1);
+          break;
+        }
+      }
+      // The className is not found
+      if (length === classes.length) {
+          classes.push(className);
+      }
+
+      element.className = classes.join(' ');
+  }
+
+  function toggleAll(e) {
+      var active = 'active';
+
+      e.preventDefault();
+      toggleClass(layout, active);
+      toggleClass(menu, active);
+      toggleClass(menuLink, active);
+  }
+
+  menuLink.onclick = function (e) {
+      toggleAll(e);
+  };
+
+  content.onclick = function(e) {
+      if (menu.className.indexOf('active') !== -1) {
+          toggleAll(e);
+      }
+  };
+
+}(this, this.document));</script></div></body>
+<!-- Mirrored from mongoosejs.com/docs/tutorials/getters-setters.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Apr 2022 10:54:47 GMT -->
+</html>
