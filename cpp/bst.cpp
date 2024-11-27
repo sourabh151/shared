@@ -5,13 +5,12 @@ using namespace std;
 struct Node
 {
 	int data;
-	Node *left;
-	Node *right;
+	Node* left;
+	Node* right;
 };
 
-Node* Insert(Node* root,int data)
-{
-	Node *node = new Node();
+Node* Insert(Node* root,int data){
+	Node* node = new Node();
 	node->data = data;
 	node->left = node->right = NULL;
 	cout << node->data << endl; 
@@ -30,27 +29,28 @@ Node* Insert(Node* root,int data)
 	return root;
 }
 
-void Print(Node* root)
-{
-	if (root == NULL)
-	{
+void Print(Node* root){
+	if(root == NULL){
 		return;
 	}
 	Print(root->left);
-	cout << root->data + " ";
+	cout<<root->data<<endl;
+	Print(root->right);
+	
+}
+int Delete(Node* root,int data){
+	if(root == NULL){
+		return 0;
+	}
+	// if(root->data = )
 }
 
-int main()
-{
-	Node *root = NULL;
-	root = Insert(root, 10);
-	root = Insert(root, 20);
-	root = Insert(root, 30);
-	root = Insert(root, 40);
-	root = Insert(root, 50);
-	root = Insert(root, 60);
-	// Print(root);
-	cout << "hello world" << endl;
-
-	return 0;
+int main(){
+	Node* root = NULL;
+	root = Insert(root,6);
+	root = Insert(root,10);
+	root = Insert(root,5);
+	root = Insert(root,7);
+	// cout<<root->right->left->right->data<<endl;
+	Print(root);
 }
