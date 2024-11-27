@@ -1,31 +1,11 @@
 // getting-started.js
 const mongoose = require("mongoose");
-
+const dotenv = require("dotenv");
+dotenv.config();
 main().catch(err => console.log(err));
 
 async function main() {
-<<<<<<< HEAD
-    //await mongoose.connect("mongodb://127.0.0.1:27017/test");
-    await mongoose.connect(
-        "mongodb+srv://sourabh:nodeExpressCourse@nodeexpresscourse.jikfk.mongodb.net/?retryWrites=true&w=majority&appName=NodeExpressCourse",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-    await mongoose.connection.useDb("test");
-
-    const kittySchema = new mongoose.Schema({ name: String });
-    kittySchema.methods.speak = function speak() {
-        const greeting = this.name
-            ? `meow name is ${this.name}`
-            : "i have no name";
-        console.log(greeting);
-    };
-    const Kitten = mongoose.model("Kitten", kittySchema);
-    await Kitten.update({_id:"6735b8601195af0f799bd196"},{name:"mosi G"},{upsert:true})
-    //await cat.save();
-    const kittens = await Kitten.find();
-    console.log(kittens);
-=======
-  await mongoose.connect("mongodb://127.0.0.1:27017/test", {
+  await mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -42,7 +22,7 @@ async function main() {
   /**
    * get_cc - modify cc_number before saving to database
    * @param {String} val - value of cc_number
-   * @returns {String} modified cc_number
+ git add  * @returns {String} modified cc_number
    */
   function get_cc(val) {
     return "xxxx-xxxx-xxxx-" + val.slice(12, 16);
@@ -59,5 +39,4 @@ async function main() {
   });
   // console.log();
   mongoose.disconnect();
->>>>>>> 732fb4e (commit from pc on 24/11)
 }

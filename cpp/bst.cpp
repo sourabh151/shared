@@ -2,36 +2,55 @@
 
 using namespace std;
 
-struct Node{
+struct Node
+{
 	int data;
-	Node* left;
-	Node* right;
-}
+	Node *left;
+	Node *right;
+};
 
-Node* Insert(root,data){
-	Node* node = new Node(data);
+Node* Insert(Node* root,int data)
+{
+	Node *node = new Node();
+	node->data = data;
 	node->left = node->right = NULL;
-	if(root == NULL){
+	cout << node->data << endl; 
+	if (root == NULL)
+	{
 		return node;
 	}
-	else if(data<=root->data){
-		root->left = Insert(root->left,data);
+	else if (data <= root->data)
+	{
+		root->left = Insert(root->left, data);
 	}
-	else{
-		root->right = Insert(root->right,data);
+	else
+	{
+		root->right = Insert(root->right, data);
 	}
 	return root;
 }
 
-void Print(root){
-	if(root == NULL){
+void Print(Node* root)
+{
+	if (root == NULL)
+	{
 		return;
 	}
 	Print(root->left);
-	cout<<root->data + " ";
-	
+	cout << root->data + " ";
 }
 
-int main(){
-	cout<<"hello world"<<endl;
+int main()
+{
+	Node *root = NULL;
+	root = Insert(root, 10);
+	root = Insert(root, 20);
+	root = Insert(root, 30);
+	root = Insert(root, 40);
+	root = Insert(root, 50);
+	root = Insert(root, 60);
+	// Print(root);
+	cout << "hello world" << endl;
+
+	return 0;
 }
