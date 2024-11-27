@@ -15,7 +15,7 @@ async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
-        await client.db("blog");
+        await client.db("blog");
         // await client.db.createCollection("posts");
         // await client.db.createCollection("users");
         // db.posts.insertOne({
