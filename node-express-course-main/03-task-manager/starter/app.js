@@ -6,7 +6,7 @@ const connectDB = require('./db/connect');
 const dotenv = require('dotenv');
 dotenv.config();
 
-app.use(express.static('./public'));
+app.use(express.static('./public-2'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

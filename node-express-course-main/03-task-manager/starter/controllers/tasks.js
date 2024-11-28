@@ -1,6 +1,7 @@
 const Task = require("../models/task");
 const mongoose = require("mongoose");
 const sanitize = require("../utility/sanitize");
+mongoose.set("debug",true);
 const getTask = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -49,8 +50,23 @@ const deleteTask = async (req, res) => {
   let result = await Task.findByIdAndDelete(req.params.id);
   res.json({ success: true, data: result });
 };
-const updateTask = (req, res) => {
-  res.send("update task");
+const updateTask = async (req, res) => {
+  const id = req.params.id;
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({success:false,message:`${id} not a valid id`});
+  }
+  let {name,completed} = req.body;
+  name = sanitize(name);
+  if(!name){
+    return res.status(404).json({success:false,message:`task name not provided`});
+  }
+  completed = (completed == "true" || completed == true)?true:false;
+  const result = await Task.findOneAndUpdate({_id:id},{name:name,completed:completed},{new:true});
+  if(!result){
+    return res.status(500).json({success:false,message:`mongoose update query failed`});
+  }
+  return res.status(200).json({success:true,data:result});
+
 };
 module.exports = {
   getTask,
