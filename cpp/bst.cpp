@@ -33,30 +33,6 @@ Node* Insert(Node* root,int data){
 	return root;
 }
 
-void Print(Node* root){
-	ListNode* main = new ListNode();
-	ListNode* cp = main;
-	main->current = root;
-	main->next = NULL;
-	int h = Height(root);
-	while(h>=0){
-		while(cp!=NULL)
-		{
-			cp=cp->next;
-		}
-		--h;
-	}
-}
-int Delete(Node* root,int data){
-	if(root == NULL){
-		return 0;
-	}
-	// if(root->data = )
-<<<<<<< HEAD
-=======
-	return 0;
-}
-
 void height(Node* r,int c,int &max){
 		if(r == NULL){
 			return;
@@ -77,6 +53,30 @@ int Height(Node* root){
 	}
 	return Max;
 }
+
+void Print(Node* root){
+	ListNode* main = new ListNode();
+	ListNode* cp = main;
+	main->current = root;
+	main->next = NULL;
+	int h = Height(root);
+	while(h>=0){
+		while(cp!=NULL)
+		{
+			cp=cp->next;
+		}
+		--h;
+	}
+}
+int Delete(Node* root,int data){
+	if(root == NULL){
+		return 0;
+	}
+	// if(root->data = )
+	return 0;
+}
+
+
 void Destroy(Node* root){
 	if (root == NULL){
 		return;
@@ -86,7 +86,6 @@ void Destroy(Node* root){
 	cout<<"deleting : "<<root->data<<endl;
 	delete root;
 	return;
->>>>>>> 249a7b4 (27/11 from mobile)
 }
 
 int main(){
