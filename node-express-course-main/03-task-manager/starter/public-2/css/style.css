@@ -6,6 +6,7 @@
 body{
   font-size: 10px;
   background: #ffaa22;
+  font-family: monospace;
 }
 .container{
   display: flex;
@@ -16,25 +17,38 @@ body{
 }
 .taskBox{
   border: 1px solid black;
+  width:80vw;
+  height:80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffaa22;
 }
 .taskForm{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
+  align-items: flex-start;
   background: #ffeeee;
+  width:90%;
+  padding:1rem 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 1rem;
 }
 .taskForm label{
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .taskForm div input{
-  height: 100%;
-  border: 1px solid red;
-}
-.taskForm div{
-  min-width:400px;
-  width:80vw;
-  padding:0.5rem 1rem;
   flex:1;
+  font-size: 1.5rem;
+}
+.taskForm div label{
+  flex:2;
+}
+
+.taskForm div{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
 }
