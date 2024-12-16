@@ -1,21 +1,18 @@
 const a = [3, 1, 2, 5, 6, 4];
 class Heap {
+  heap;
+  level;
+  i;
   insert(e) {
-    console.log(this.size)
+    console.log(e)
   }
   constructor(a) {
-    this.heap = null;
-    this.size = 0;
-    this.i = 0;
     if (typeof (a) == "object") {
-      this.size = Math.ceil(Math.log2(a.length));
-      this.heap = new Array(this.size).fill(null);
       for (let e of a) {
         insert(e);
       }
     }
     else {
-      this.size = 1;
       insert(a);
     }
   }
