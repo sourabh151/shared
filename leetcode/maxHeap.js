@@ -1,5 +1,5 @@
-const a = [3, 1, 2, 5, 6, 4];
-class Heap {
+//const a = ['c','c','z','a','z','c','c'];
+class maxHeap {
   heap = [null];
   push(e) {
     this.heap.push(e);
@@ -47,12 +47,12 @@ class Heap {
           a = a < this.heap.length ? a : null;
         }
         else {
-          let min = this.heap[a] > this.heap[b] ? a : b;
-          //console.log("min : ", this.heap[min])
-          if (this.heap[i] > this.heap[min])
+          let max = this.heap[a] > this.heap[b] ? a : b;
+          //console.log("max : ", this.heap[max])
+          if (this.heap[i] > this.heap[max])
             break;
-          [this.heap[i], this.heap[min]] = [this.heap[min], this.heap[i]];
-          i = min;
+          [this.heap[i], this.heap[max]] = [this.heap[max], this.heap[i]];
+          i = max;
           a = (i * 2);
           a = a < this.heap.length ? a : null;
           b = (i * 2) + 1;
@@ -65,7 +65,7 @@ class Heap {
   }
 
   insert(a) {
-    if (typeof (a) == "object") {
+    if (typeof (a) == "object" || typeof(a) == "string") {
       for (let e of a) {
         this.push(e);
       }
@@ -79,22 +79,23 @@ class Heap {
   }
 
 }
-
-const main = () => {
-  let t1 = new Heap(a);
-  console.log(t1.heap);
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.pop());
-  console.log(t1.heap);
-}
-main();
-//function createHeap(a){
-//  const s = Math.ceil(Math.log2(a.length));
-//  let c = new Array(s).fill(null);
+module.exports = maxHeap;
 //
+//const main = () => {
+//  let t1 = new Heap(a);
+//  console.log(t1.heap);
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.pop());
+//  console.log(t1.heap);
 //}
+//main();
+////function createHeap(a){
+////  const s = Math.ceil(Math.log2(a.length));
+////  let c = new Array(s).fill(null);
+////
+////}
