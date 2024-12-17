@@ -3,15 +3,15 @@ class Heap {
   heap = [null];
   push(e) {
     this.heap.push(e);
-    //console.log(this.heap)
     let i = this.heap.length - 1;
     if (i > 1) {
-      while (this.heap[i] < this.heap[Math.floor(i / 2)]) {
+      while (this.heap[i] > this.heap[Math.floor(i / 2)]) {
         [this.heap[i], this.heap[Math.floor(i / 2)]] = [this.heap[Math.floor(i / 2)], this.heap[i]];
         i = Math.floor(i / 2);
         if (i == 1)
           break;
       }
+    //console.log(this.heap)
     }
   }
   pop() {
@@ -39,7 +39,7 @@ class Heap {
         if ((a == null && b == null))
           break;
         else if (b == null) {
-          if (this.heap[a] > this.heap[i])
+          if (this.heap[a] < this.heap[i])
             break;
           [this.heap[i], this.heap[a]] = [this.heap[a], this.heap[i]];
           i = a;
@@ -47,9 +47,9 @@ class Heap {
           a = a < this.heap.length ? a : null;
         }
         else {
-          let min = this.heap[a] < this.heap[b] ? a : b;
+          let min = this.heap[a] > this.heap[b] ? a : b;
           //console.log("min : ", this.heap[min])
-          if (this.heap[i] < this.heap[min])
+          if (this.heap[i] > this.heap[min])
             break;
           [this.heap[i], this.heap[min]] = [this.heap[min], this.heap[i]];
           i = min;
