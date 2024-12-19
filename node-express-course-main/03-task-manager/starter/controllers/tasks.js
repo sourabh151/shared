@@ -38,11 +38,11 @@ const createTask = async (req, res) => {
   }
   let { name, completed } = req.body;
   completed === "true" ? (completed = true) : (completed = false);
-  if (!name || typeof completed !== "boolean") {
-    return res
-      .status(400)
-      .json({ success: false, msg: "Please provide name and completed" });
-  }
+  // if (!name || typeof completed !== "boolean") {
+  //   return res
+  //     .status(400)
+  //     .json({ success: false, msg: "Please provide name and completed" });
+  // }
   name = sanitize(name);
   const task = new Task({ name, completed });
   await task.save();
