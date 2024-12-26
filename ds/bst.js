@@ -91,7 +91,8 @@ b.push(31);
 b.push(23);
 b.push(17);
 b.push(6);
-b.print();
+//b.print();
+//console.log(b.root.right.right);
 //this.t = this.root;
 //this.root = this.max(t.left)
 //if(this.root===null){
