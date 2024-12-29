@@ -14,15 +14,12 @@ const getTask = async (req, res) => {
     );
     throw e;
   }
-
   const task = await Task.findById(id);
-
   if (!task) {
     return res
       .status(404)
       .json({ success: false, msg: `No task with id: ${id}` });
   }
-
   res.status(200).json({ success: true, data: task });
 };
 const getAllTasks = (req, res) => {

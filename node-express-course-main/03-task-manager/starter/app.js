@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
-const PORT = 5000;
 const connectDB = require('./db/connect');
 const dotenv = require('dotenv');
 dotenv.config();
+const PORT = process.env.PORT || 5000;
 
-app.use(express.static('./public-2'));
+
+app.use(express.static('./public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
