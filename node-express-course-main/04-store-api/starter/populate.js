@@ -19,7 +19,7 @@ const start = async () => {
         process.exit(1);
     }
 }
-// start();
+ //start();
 const print = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
