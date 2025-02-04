@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+:root {
+
+	--Lime: hsl(61, 70%, 52%);
+	--Red: hsl(4, 69%, 50%);
+	--White: hsl(0, 0%, 100%);
+	--Slate100: hsl(202, 86%, 94%);
+	--Slate300: hsl(203, 41%, 72%);
+	--Slate500: hsl(200, 26%, 54%);
+	--Slate700: hsl(200, 24%, 40%);
+	--Slate900: hsl(202, 55%, 16%);
+	@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+	font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+	font-size: 10px;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--Slate100);
+  font-size: 1.6rem;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.calculator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  background-color: var(--White);
+}
+
+.row {
+	width: 90%;
+  margin: 0.75rem 0;
+}
+
+.row1 h2 {
+  font-weight:700;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.row1 button{
+  border: none;
+  border-bottom: 1px solid var(--Slate700);
+  background-color: transparent;
+  color: var(--Slate700);
+}
+label{
+  color: var(--Slate700);
+}
+.row input[type="text"]{
+  margin: 0.5rem 0;
+  width: 100%;
+  line-height: 3.5rem;
+  border:1px solid var(--Slate700);
+  border-radius: 3px;
+}
+.row2 input{
+  position: relative;
+}
+.row2 input::after{
+  width: 3rem;
+  height: 100%;
+  left: 0;
+  content: '£';
+  background-color: var(--Slate300);
+  color: var(--Slate500);
+}
