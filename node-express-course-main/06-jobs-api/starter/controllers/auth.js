@@ -9,6 +9,7 @@ const signup = async (req, res) => {
     if (!name || !email || !password) {
         throw new BadRequestError('Please provide all values');
     }
+  await User.init();
     const user = await User.create({ name, email, password });
     const token = user.createJWT();
     res.json({ msg: "user created", token });
