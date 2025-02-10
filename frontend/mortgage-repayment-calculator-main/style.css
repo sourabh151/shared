@@ -1,106 +1,263 @@
 *,
 *::before,
 *::after {
-	margin: 0;
-	box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 
 :root {
 
-	--Lime: hsl(61, 70%, 52%);
-	--Red: hsl(4, 69%, 50%);
-	--White: hsl(0, 0%, 100%);
-	--Slate100: hsl(202, 86%, 94%);
-	--Slate300: hsl(203, 41%, 72%);
-	--Slate500: hsl(200, 26%, 54%);
-	--Slate700: hsl(200, 24%, 40%);
-	--Slate900: hsl(202, 55%, 16%);
-	@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-	font-family: 'Plus Jakarta Sans', sans-serif;
-	font-weight: 500;
-	font-size: 10px;
+  --Lime: hsl(61, 70%, 52%);
+  --LimeLight: hsl(61, 70%, 92%);
+  --Red: hsl(4, 69%, 50%);
+  --White: hsl(0, 0%, 100%);
+  --Slate100: hsl(202, 86%, 94%);
+  --Slate300: hsl(203, 41%, 72%);
+  --Slate500: hsl(200, 26%, 54%);
+  --Slate700: hsl(200, 24%, 40%);
+  --Slate900: hsl(202, 55%, 16%);
+  --Slate1000: hsl(202, 55%, 10%);
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
 }
 
 body {
-	width: 100vw;
-	height: 90vh;
-	background-color: var(--Slate100);
-	font-size: 1.6rem;
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--Slate100);
+  font-size: 1.6rem;
 }
 
 main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .calculator {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background-color: var(--White);
-	width: 100%;
-	padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--White);
+  width: 100%;
+  padding: 2rem 1rem;
 }
 
 .result {
-	width: 100%;
+  width: 100%;
 }
 
 .row {
-	width: 90%;
-	margin: 0.75rem 0;
+  width: 90%;
+  margin: 0.25rem 0;
 }
 
 .row1 h2 {
-	font-weight: 700;
-	font-size: 2rem;
-	margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .row1 button {
-	border: none;
-	border-bottom: 1px solid var(--Slate700);
-	background-color: transparent;
-	color: var(--Slate700);
+  border: none;
+  border-bottom: 1px solid var(--Slate700);
+  background-color: transparent;
+  color: var(--Slate700);
 }
 
 label {
-	color: var(--Slate700);
+  color: var(--Slate700);
 }
 
-.row input[type="text"] {
-	width: 100%;
-	padding-left: 5rem;
-	line-height: 3.5rem;
-	border: 1px solid var(--Slate700);
-	border-radius: 3px;
-	font-size: 2rem;
-	font-weight: 700;
+.row input[type="number"],
+.row5 div,
+.row6 button {
+  width: 100%;
+  height: 5rem;
+  border: 1px solid var(--Slate700);
+  border-radius: 3px;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-left: 1rem;
 }
 
 .input-with-logo {
-	position: relative;
-	margin: 1rem 0;
-}
-.row2 .input-with-logo i{
-	position: absolute;
-	background-color: var(--Slate100);
-	color: var(--Slate700);
-	left: 1px;
-	top: 0.1rem;
-	width:4rem;
-	height:calc(100% - 0.2rem);
-	font-size: 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-top-left-radius: 0.3rem;
-	border-bottom-left-radius: 0.3rem;
-}
-.input-with-logo input:focus + i{
+  position: relative;
+  margin: 1rem 0;
 }
 
+.row2 .input-with-logo input {
+  padding-left: 5rem;
+}
+
+.row2 .input-with-logo i {
+  position: absolute;
+  background-color: var(--Slate100);
+  color: var(--Slate700);
+  left: 1px;
+  top: 0.1rem;
+  padding: 0 1.5rem;
+  height: calc(100% - 0.2rem);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.row3 .input-with-logo input {
+  padding-right: 8rem;
+}
+
+.row3 .input-with-logo i,
+.row4 .input-with-logo i {
+  position: absolute;
+  background-color: var(--Slate100);
+  color: var(--Slate700);
+  right: 1px;
+  top: 0.1rem;
+  padding: 0 1.5rem;
+  height: calc(100% - 0.2rem);
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.row4 .input-with-logo input {
+  padding-right: 5rem;
+}
+
+.row5 div {
+  padding: 0 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.row5 div:has(input:checked) {
+  border: 0.1rem solid var(--Lime);
+  background-color: var(--LimeLight);
+}
+
+.row5 input:checked {
+  accent-color: var(--Lime);
+}
+
+.row5 div label {
+  padding-left: 1.5rem;
+  color: black;
+}
+
+.row6 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3rem;
+  background-color: var(--Lime);
+  border: none;
+}
+
+.row6 button:focus {
+  border: 1px solid black;
+  transition: ease;
+}
+
+.row6 button img {
+  padding-right: 1rem;
+}
+
+.result {
+  background-color: var(--Slate900);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty,
+.completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 90%;
+}
+
+.result h2 {
+  margin: 2rem 0;
+  color: var(--White);
+}
+
+.result p {
+  font-weight: 500;
+  color: var(--Slate300);
+}
+
+
+.completed {
+  text-align: left;
+}
+
+.amounts {
+  position: relative;
+  background-color: var(--Slate1000);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-shadow: 0rem -0.3rem 0rem -1px var(--Lime);
+}
+
+.amount {
+  padding: 1rem 0;
+}
+
+.amount:nth-child(1) {
+  box-shadow: 0px 1px 0px 0px var(--Slate700);
+}
+
+#monthly {
+  color: var(--Lime);
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+#total {
+  color: var(--White);
+  margin: 1rem 0;
+}
+
+.hide {
+  display: none;
+}
+
+.error {
+  color: var(--Red);
+}
+
+.hide-error {
+  visibility: hidden;
+}
+
+.accent-error {
+  accent-color: var(--Lime) !important;
+}
+/*.amounts::before{*/
+/*  position: absolute;*/
+/*  content:"";*/
+/*  top: -1rem;*/
+/*  left: 0;*/
+/*  background-color: var(--Lime);*/
+/*  z-index: -1;*/
+/*}*/

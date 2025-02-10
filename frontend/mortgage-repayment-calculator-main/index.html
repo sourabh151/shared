@@ -27,6 +27,8 @@
   <script>
     eruda.init();
   </script>
+  <script src="index.js" defer>
+  </script>
 </head>
 
 <body>
@@ -42,24 +44,32 @@
       <div class="row row2">
         <label for="amount"> Mortgage Amount</label>
         <div class="input-with-logo">
-          <i class="logo">₤</i>
-          <input type="text" name="amount" id="amount" value="">
-
+          <i class>₤</i>
+          <input type="number" data-id="1" name="amount" id="amount" value="">
         </div>
+        <p class="error hide-error">This field is required</p>
       </div>
 
       <div class="row row3">
         <label for="term"> Mortgage Term</label>
-        <input type="text" name="term" id="term" value="">
+        <div class="input-with-logo">
+          <i class>years</i>
+          <input type="number" data-id="2" name="term" id="term" value="">
+        </div>
+        <p class="error hide-error">This field is required</p>
       </div>
 
       <div class="row row4">
         <label for="rate"> Interest Rate</label>
-        <input type="text" name="rate" id="rate" value="">
+        <div class="input-with-logo">
+          <i class>%</i>
+          <input type="number" data-id="3" name="rate" id="rate" value="">
+        </div>
+        <p class="error hide-error">This field is required</p>
       </div>
 
-      <div class="row row5">
-        <h3>Mortgage Type</h3>
+      <div class="row row5" data-id="4">
+        <label>Mortgage Type</label>
         <div>
           <input type="radio" name="type" value="repayment" id="repayment">
           <label for="repayment">Repayment</label>
@@ -69,11 +79,13 @@
           <input type="radio" name="type" value="interest" id="interest">
           <label for="interest">Interest Only</label>
         </div>
+        <p class="error hide-error">This field is required</p>
       </div>
 
       <div class="row row6">
-        <img src="assets/images/icon-calculator.svg" alt="">
-        <button type="button">Calculate Repayments
+        <button type="button">
+          <img src="assets/images/icon-calculator.svg" alt="">
+          Calculate Repayments
         </button>
       </div>
 
