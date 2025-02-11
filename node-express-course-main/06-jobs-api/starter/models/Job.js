@@ -13,8 +13,12 @@ const job = new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:["Interview","Pending","Cancelled"],
-        default:"Pending"
+        enum:["interview","pending","cancelled"],
+        $jsonSchema: {
+            bsonType: 'string',
+            enum: ['Interview', 'Pending', 'Cancelled']
+          },
+        default:"pending"
     },
     createdBy:{
         type : mongoose.Types.ObjectId,
