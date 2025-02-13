@@ -14,10 +14,13 @@ const job = new mongoose.Schema({
     status:{
         type:String,
         enum:["interview","pending","cancelled"],
-        $jsonSchema: {
-            bsonType: 'string',
-            enum: ['Interview', 'Pending', 'Cancelled']
-          },
+        validate: {
+            validator:function(v){
+                return ["interview","pending","cancelled"].includes(v)
+            },
+            message:"{VALUE} is not a valid value for status field",
+        },
+
         default:"pending"
     },
     createdBy:{

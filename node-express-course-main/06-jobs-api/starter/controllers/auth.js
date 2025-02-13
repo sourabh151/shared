@@ -12,7 +12,7 @@ const signup = async (req, res) => {
   await User.init();
     const user = await User.create({ name, email, password });
     const token = user.createJWT();
-    res.json({ msg: "user created", token });
+    res.json({ success:true, token });
 }
 const login = async function (req, res) {
     const { email, password } = req.body;
@@ -28,6 +28,6 @@ const login = async function (req, res) {
         throw new UnauthenticatedError('Invalid Credentials');
     }
     const token = user.createJWT();
-    res.json({ msg: "login successful", token })
+    res.json({ success:true, token })
 }
 module.exports = { signup, login }

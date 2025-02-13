@@ -35,7 +35,10 @@ const updateJob = async (req, res) => {
         }
     }
 
-    const result = await Job.findOneAndUpdate({ _id: id }, { $set: update }, { new: true });
+    const result = await Job.findByIdAndUpdate({ _id: id }, { $set: update }, { new: true ,runValidators:true});
+    if(!result){
+        return res.status(StatusCodes.NOT_MODIFIED)
+    }
     res.status(StatusCodes.OK).json({ success: true, result });
 }
 
