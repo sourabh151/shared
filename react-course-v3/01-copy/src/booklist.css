@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f5f8;
+    color: #222;
+}
+
+.Booklist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.Book {
+    width: 90%;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+.Book img{
+    width: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.Book *{
+    margin:20px 10px;
+    text-align: center;
+}
+.Book p{
+    color: cyan;
+    font: 600;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@media screen and (min-width: 768px) {
+    .Booklist{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .Book{
+        width: calc(100% / 4);
+        margin: 3rem 3rem;
+    }
+    
+}

@@ -19,11 +19,7 @@ app.use(express.json());
 // extra packages
 
 // routes
-<<<<<<< HEAD
 app.use("/",express.static("./frontend/"));
-=======
-app.use(express.static("./frontend/"));
->>>>>>> f2d28f348d51b6382bdc3f6e5f8abb1fcd0e0202
 app.use("/api/v1/auth/",authRouter);
 app.use("/api/v1/jobs/",authenticate,jobsRouter);
 
