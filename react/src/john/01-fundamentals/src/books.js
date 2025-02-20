@@ -1,23 +1,23 @@
-import img1 from './images/book-1.jpg';
-import img2 from './images/book-2.jpg';
-import img3 from './images/book-3.jpg';
+//import img1 from './images/book-1.jpg';
+//import img2 from './images/book-2.jpg';
+//import img3 from './images/book-3.jpg';
 export const books = [
   {
     author: 'Jordan Moore',
     title: 'Interesting Facts For Curious Minds',
-    img: img1,
+    img: "Jordan Moore",
     id: 1,
   },
   {
     author: 'James Clear',
     title: 'Atomic Habits',
-    img: img2,
+    img: "James Clear",
     id: 2,
   },
   {
     author: 'Stephen King',
     title: 'Fairy Tale',
-    img: img3,
+    img: "Stephen King",
     id: 3,
   },
 ];
