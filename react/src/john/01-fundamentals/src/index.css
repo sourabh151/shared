@@ -30,6 +30,7 @@ body {
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+  position: relative;
 }
 .book img {
   width: 100%;
@@ -53,4 +54,26 @@ h1 {
   text-align: center;
   margin-top: 4rem;
   text-transform: capitalize;
+}
+.rank{
+  position: absolute;
+  top: 0;
+  left: 0.1rem;
+  background-color: orangered;
+  color: white;
+  font-weight: 700;
+  padding: 0.2rem 1rem;
+  z-index: 2;
+}
+.rank:before{
+  content: "";
+  display: block;
+  background-color: orangered;
+  height: 100%;
+  position: absolute;
+  right: -20px;
+  width: 30px;
+  transform: skewX(-10deg);
+  top: 0;
+  z-index: 1;
 }
