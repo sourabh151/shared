@@ -8,15 +8,18 @@ import Book from './Book';
 
 function BookList() {
   const secret = "abrakadabra"
-  function logger(){
-    console.log(secret);
+  function getBook(matchId) {
+    console.log(books.find(({ id }) => {
+      return id === matchId;
+    }));
+
   }
   return (
     <>
       <h1>amazon best sellers</h1>
       <section className='booklist'>
         {books.map((book) => {
-          return <Book {...book} key={book.id} logger={logger}/>;
+          return <Book {...book} key={book.id} getBook={getBook} />;
         })}
       </section>
     </>
