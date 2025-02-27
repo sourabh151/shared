@@ -1,6 +1,14 @@
-let str:String = "hello";
-console.log(str);
-let num = 23;
-console.log(num);
-console.log(45);
+enum MaritalStatus {
+  Single,
+  Married,
+  Separated,
+  Divorced
+};
+
+let employee: [string, MaritalStatus, number] = [
+  'Bob Jones',
+  MaritalStatus.Married,
+  39
+];
+
 
