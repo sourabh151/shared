@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 
 const CleanupFunction = () => {
   const [toggle, setToggle] = useState(false);
-  const handleToggle = () => {
-    setToggle(!toggle);
-  }
   return (
     <div>
-      <button className="btn" onClick={handleToggle}>
+      <button className="btn" onClick={() => setToggle(!toggle)}>
         toggle
       </button>
       {

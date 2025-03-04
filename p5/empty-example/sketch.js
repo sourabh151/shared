@@ -1,4 +1,4 @@
-
+let w = document.querySelector(":root").clientWidth();
 function setup() {
   createCanvas(710, 400, WEBGL);
 }

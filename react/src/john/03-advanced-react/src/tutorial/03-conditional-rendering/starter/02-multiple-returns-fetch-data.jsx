@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-const url = 'https://api.github.com/users/sourabh151';
+const url = 'https://sapi.github.com/users/QuincyLarson';
 
 const MultipleReturnsFetchData = () => {
   const [data, setData] = useState(null);
@@ -7,8 +7,12 @@ const MultipleReturnsFetchData = () => {
     try {
       let response = await fetch(url);
       let data = await response.json();
-      console.log(data);
-
+      if(response.status == 404){
+        data.ok = false;
+      }
+      else{
+        data.ok = true;
+      }
       setData(data);
     } catch (error) {
       console.log(error);
@@ -19,8 +23,13 @@ const MultipleReturnsFetchData = () => {
   }, [])
 
   return <>
+    {console.log(data)}
     {(!data) && <h2>Loading...</h2>}
-    {data && <div>
+    {data && !data.ok && <div>
+      <h2 style={{color:"red"}}>404</h2>
+      <h3 style={{color:"orange"}}>User Not Found</h3>
+    </div>}
+    {data && data.ok && <div>
       <img src={data.avatar_url} alt={data.name} style={{
         width: 150, borderRadius: 25
       }} />
