@@ -19,7 +19,20 @@ const CleanupFunction = () => {
 
 const SecondComponent = () => {
   useEffect(() => {
-    console.log("created second component");
+    // const intId = setInterval(()=>{
+    //   console.log("hello world");
+    // },1000)
+    // return ()=>{
+    //   clearInterval(intId);
+    // }
+    const someFunc = () => {
+      console.log("someFunc");
+    }
+    window.addEventListener("scroll", (e) => {
+      return ()=>{
+        window.removeEventListener("scroll");
+      }
+    })
   }, [])
   return <div>
     Sourabh
