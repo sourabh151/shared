@@ -1,0 +1,27 @@
+.block{
+  height: 100%;
+  padding: 1rem;
+}
+h1,h2,h3{
+  text-align: center;
+}
+.row{
+  list-style-type: none;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  width:500px;
+}
+.row p{
+  width: 200px;
+  padding: 1rem;
+}
+.row .outer{
+  width:300px;
+  display: flex;
+  align-items: center;
+}
+.row .inner{
+  background-color: orange;
+  height:1rem;
+}
