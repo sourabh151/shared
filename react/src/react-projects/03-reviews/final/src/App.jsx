@@ -1,5 +1,6 @@
 import React from 'react';
 import Review from './Review';
+import "./index.css"
 function App() {
   return (
     <main>
