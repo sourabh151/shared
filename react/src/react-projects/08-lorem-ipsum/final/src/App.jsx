@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import data from './data';
+import "./index.css";
 function App() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState([]);
