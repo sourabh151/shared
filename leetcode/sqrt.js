@@ -21,12 +21,11 @@ function prime(n){
   return n;
 }
 let s = 2;
-for (let i = 0; i < 50; i++) {
+console.time("before")
+for (let i = 0; i < 100000; i++) {
   s = prime(s);
-  console.log(s);
-
-  
 }
+console.timeEnd("before")
 function sqrt(x){
   let r,ps = 0;
   while(true){
