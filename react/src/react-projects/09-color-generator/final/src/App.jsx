@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SingleColor from './SingleColor'
+import "./index.css"
 
 import Values from 'values.js'
 

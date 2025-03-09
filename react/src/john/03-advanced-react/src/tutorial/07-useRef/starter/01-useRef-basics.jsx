@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 
 const UseRefBasics = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
+  const nameRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(nameRef.current.value)
   };
+  useEffect(() => {
+  }, [value]);
 
   return (
     <div>
@@ -14,7 +18,7 @@ const UseRefBasics = () => {
           <label htmlFor='name' className='form-label'>
             Name
           </label>
-          <input type='text' id='name' className='form-input' />
+          <input type='text' id='name' className='form-input' ref={nameRef} />
         </div>
         <button type='submit' className='btn btn-block'>
           submit
