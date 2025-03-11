@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
 import Alert from './Alert';
+import "./index.css"
 const getLocalStorage = () => {
   let list = localStorage.getItem('list');
   if (list) {
@@ -64,7 +65,6 @@ function App() {
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
 
         <h3>grocery bud</h3>
         <div className='form-control'>
@@ -88,6 +88,7 @@ function App() {
           </button>
         </div>
       )}
+      {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
     </section>
   );
 }

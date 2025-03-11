@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import NavLinks from './NavLinks';
+import "../../../../index.css"
 
 export const NavbarContext = createContext();
 // returns two components
