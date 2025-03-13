@@ -24,7 +24,7 @@ const UseRefBasics = () => {
           submit
         </button>
       </form>
-      <h1>value : {value}</h1>
+      <h1 className='text-red-500 sm:text-amber-300 sm:border-2'>value : {value}</h1>
       <button onClick={() => setValue(value + 1)} className='btn'>
         increase
       </button>
