@@ -13,14 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +32 src/projects/wordle/App.jsx
-badd +36 ~/shared/react/src/projects/wordle/Words.jsx
-badd +4 ~/shared/react/src/projects/wordle/KeyRow.jsx
+badd +12 ~/shared/react/src/projects/clock/Hands.jsx
+badd +1 src/projects/clock/Second.jsx
+badd +1 src/projects/clock/Minute.jsx
+badd +1 ~/shared/react/src/projects/clock/Hour.jsx
 argglobal
 %argdel
-edit src/projects/wordle/App.jsx
+edit ~/shared/react/src/projects/clock/Hands.jsx
 argglobal
-balt ~/shared/react/src/projects/wordle/KeyRow.jsx
+balt ~/shared/react/src/projects/clock/Hour.jsx
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -31,12 +32,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 32 - ((26 * winheight(0) + 18) / 37)
+let s:l = 12 - ((11 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 32
-normal! 087|
+keepjumps 12
+normal! 018|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
