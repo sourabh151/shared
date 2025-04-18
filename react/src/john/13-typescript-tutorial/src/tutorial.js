@@ -11,9 +11,9 @@ const tourSchema = z.object({
 });
 
 // extract the inferred type
-type Tour = z.infer<typeof tourSchema>;
 
-async function fetchData(url: string): Promise<Tour[]> {
+
+async function fetchData(url) {
   try {
     const response = await fetch(url);
 
@@ -22,7 +22,7 @@ async function fetchData(url: string): Promise<Tour[]> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const rawData: Tour[] = await response.json();
+    const rawData = await response.json();
     const result = tourSchema.array().safeParse(rawData);
     if (!result.success) {
       throw new Error(`Invalid data: ${result.error}`);
