@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client'
 //import App from "./john/03-advanced-react/src/App.jsx"
 //import App from "./john/react-router-6-tutorial/src/final/App"
 //import App from "./john/20-react-router/Main.jsx"
-import App from "./projects/toast/App"
+import App from "./john/21-tailwind/App.jsx"
 // import App from "./repo/App"
 createRoot(document.getElementById('root')).render(
   <StrictMode>
