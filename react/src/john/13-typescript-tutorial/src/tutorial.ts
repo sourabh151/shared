@@ -1,14 +1,7 @@
-function createStudent(student: { id: number; name: string, email?: string }) {
-  console.log(`Welcome to the course ${student.name.toUpperCase()}!!!`);
-  console.log(student.email || 'no email');
-  
+import axios from "axios"
+const url = 'https://www.course-api.com/react-tours-project';
+async function getData(url: string): Promise<any> {
+  const res = await axios.get(url);
+  console.log(res);
 }
-
-const newStudent = {
-  id: 5,
-  name: 'anna',
-  email: 'anna@gmail.com',
-};
-
-createStudent(newStudent);
-createStudent({ id: 1, name: 'bob'});
+getData(url)
