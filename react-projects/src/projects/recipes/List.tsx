@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect } from "react"
 import Item from "./Item"
-import { Recipes } from "./types"
+import { useDataContext } from "./context/DataContextProvider";
 
 function List() {
-  const [data, setData] = useState<Recipes>();
+  const {data, setData} = useDataContext();
   const fetchData = useCallback(async () => {
     const res = await fetch("https://dummyjson.com/recipes")
     if (res.ok) {
@@ -16,7 +16,7 @@ function List() {
     fetchData();
   }, [fetchData])
   return (
-    <div className="flex flex-col gap-4 p-4 bg-primary" >{
+    <div className="grid gap-4 p-4 bg-primary md:grid-cols-2 md:p-8 lg:grid-cols-3" >{
       data?.recipes.map((recipe) => {
         return <Item key={recipe.id} recipe={recipe} />
       })
