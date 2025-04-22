@@ -1,12 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import { Recipes, DataContextProviderValues, DataContextProviderProps } from "../types"
+import { Recipes, DataContextProviderValues, DataContextProviderProps, Recipe } from "../types"
 
 
 const DataContext = createContext<DataContextProviderValues | null>(null);
 function DataContextProvider({ children: children }: DataContextProviderProps) {
     const [data, setData] = useState<Recipes>();
+    const [recipes, setRecipes] = useState<Recipe[]>();
+    
     return (
-        <DataContext value={{ data, setData }}>
+        <DataContext value={{ data, setData ,recipes,setRecipes}}>
             {children}
         </DataContext>
     )

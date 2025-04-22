@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './projects/recipes/App'
+import App from './projects/interactive-comments-section/App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

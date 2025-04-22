@@ -41,7 +41,7 @@ export enum color {
   "Hard" = "bg-red-400 ",
   "Default" = "bg-primary "
 }
-export type  DataContextProviderValues = { data: Recipes | undefined; setData: React.Dispatch<React.SetStateAction<Recipes | undefined>>; }
+export type  DataContextProviderValues = { data: Recipes | undefined; setData: React.Dispatch<React.SetStateAction<Recipes | undefined>>;recipes: Recipe[] | undefined; setRecipes: React.Dispatch<React.SetStateAction<Recipe[] | undefined>>; }
 export type DataContextProviderProps = {
   children:React.ReactNode
 }

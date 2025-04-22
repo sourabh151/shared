@@ -4,7 +4,7 @@ import List from "./List.tsx"
 function App() {
   return (
     <DataContextProvider>
-      <main className="w-screen h-screen ">
+      <main className="w-screen min-h-full h-auto bg-primary ">
         <>
           {
             <Filters />

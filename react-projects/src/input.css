@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Medium.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Bold.ttf") format("ttf");
+}
