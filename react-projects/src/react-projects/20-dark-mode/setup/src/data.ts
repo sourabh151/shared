@@ -1,4 +1,11 @@
-const articles = [
+export type ArticleSchema = {
+  id: number,
+  title: string,
+  date: Date,
+  length: number,
+  snippet: string
+}
+const articles: ArticleSchema[] = [
   {
     id: 1,
     title: 'the WET Codbase',
