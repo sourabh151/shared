@@ -13,8 +13,8 @@ function Main() {
     setComments(data.comments)
   }, [setUser, setComments])
   return (
-    <main className="bg-myGrey100 w-screen h-screen md:flex">
-      <div className="p-4 w-full h-full flex flex-col">
+    <main className="bg-myGrey100 w-screen h-screen md:flex justify-center items-center">
+      <div className="p-4 w-full h-full flex flex-col max-w-screen-sm">
         <Chats />
         <Footer />
       </div>
