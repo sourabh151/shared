@@ -2,26 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Regular.ttf") format("ttf");
-}
+/* fonts for project */
+/*@font-face {*/
+/*	font-family: Rubik;*/
+/*	font-style: normal;*/
+/*	font-weight: 400;*/
+/*	font-display: swap;*/
+/*	src: url("/src/projects/interactive-comments-section/fonts/Rubik-Regular.ttf") format("ttf");*/
+/*}*/
+/**/
+/*@font-face {*/
+/*	font-family: Rubik;*/
+/*	font-style: normal;*/
+/*	font-weight: 500;*/
+/*	font-display: swap;*/
+/*	src: url("/src/projects/interactive-comments-section/fonts/Rubik-Medium.ttf") format("ttf");*/
+/*}*/
+/**/
+/*@font-face {*/
+/*	font-family: Rubik;*/
+/*	font-style: normal;*/
+/*	font-weight: 700;*/
+/*	font-display: swap;*/
+/*	src: url("/src/projects/interactive-comments-section/fonts/Rubik-Bold.ttf") format("ttf");*/
+/*}*/
+/*.dark-mode-colors-light{*/
+/*  --bgColor:rgba(255,255,255);*/
+/*  --accentColor:rgba(210,53,103);*/
+/*  --textColor:rgba(40,44,53);*/
+/*}*/
+/*.dark-mode-colors-dark{*/
+/*  --bgColor:rgba(40,44,53);*/
+/*  --accentColor:rgba(255,166,197);*/
+/*  --textColor:rgba(255,255,255);*/
+/*}*/
+/*.dark-mode-transition * {*/
+/*  transition: cubic-bezier(0.47, 0, 0.745, 0.715);*/
+/*  transition-duration: 200ms;*/
+/*}*/
 
-@font-face {
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Medium.ttf") format("ttf");
-}
+/*My Site*/
 
-@font-face {
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/src/projects/interactive-comments-section/fonts/Rubik-Bold.ttf") format("ttf");
-}
+/*.My-Site-dark {*/
+/*  --bgColor: #3D365C;*/
+/*  --accentColor: #C95792;*/
+/*  --textColor: #F8B55F;*/
+/*}*/
+/**/
+/*.My-Site-light {*/
+/*  --bgColor: #F8B55F;*/
+/*  --accentColor: #C95792;*/
+/*  --textColor: #3D365C;*/
+/*}*/
+/**/
+/*a.active {*/
+/*  border-bottom-color: var(--accentColor) !important;*/
+/*}*/
+
+/*TicTacToe*/
+
