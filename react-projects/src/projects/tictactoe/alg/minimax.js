@@ -1,3 +1,4 @@
+"use strict";
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -7,7 +8,11 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-var states = {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.states = void 0;
+exports.analyseBoard = analyseBoard;
+exports.minimax = minimax;
+exports.states = {
     X: 1,
     O: -1,
     D: 0,
@@ -28,11 +33,11 @@ function analyseBoard(pos) {
         var e = wins[i];
         if (pos[e[0]]) {
             if (pos[e[0]] === pos[e[1]] && pos[e[1]] === pos[e[2]]) {
-                return pos[e[0]] === "X" ? states.X : states.O;
+                return pos[e[0]] === "X" ? exports.states.X : exports.states.O;
             }
         }
     }
-    return !pos.some(function (v) { return v === ""; }) ? states.D : states.C;
+    return !pos.some(function (v) { return v === ""; }) ? exports.states.D : exports.states.C;
 }
 /*
  * TODO: WHAT SHOULD BE THE RETURN VALUE OF MINIMAX FUNCTION
@@ -48,7 +53,7 @@ function minimax(pos, turn) {
             empty.push(i);
     });
     // console.log(analysis,empty,turn);
-    if (turn === states.X) {
+    if (turn === exports.states.X) {
         var max = -Infinity;
         var maxPos = -1;
         for (var _i = 0, empty_1 = empty; _i < empty_1.length; _i++) {
@@ -56,7 +61,7 @@ function minimax(pos, turn) {
             var newPos = __spreadArray([], pos, true);
             newPos[e] = "X";
             // console.log(newPos);
-            var r = minimax(newPos, states.O);
+            var r = minimax(newPos, exports.states.O);
             if (r[0] > max) {
                 max = r[0];
                 maxPos = e;
@@ -70,8 +75,8 @@ function minimax(pos, turn) {
         for (var _a = 0, empty_2 = empty; _a < empty_2.length; _a++) {
             var e = empty_2[_a];
             var newPos = __spreadArray([], pos, true);
-            newPos[e] = "X";
-            var r = minimax(newPos, states.X);
+            newPos[e] = "O";
+            var r = minimax(newPos, exports.states.X);
             if (r[0] < min) {
                 min = r[0];
                 minPos = e;
@@ -80,9 +85,9 @@ function minimax(pos, turn) {
         return [min, minPos];
     }
 }
-var pos = [
-    "X", "", "",
-    "O", "X", "O",
-    "X", "O", "O"
-];
-console.log(minimax(pos, states.O));
+// const pos = [
+//   "X","","",
+//   "O","X","O",
+//   "X","O","O"
+// ]
+// console.log(minimax(pos,states.O));

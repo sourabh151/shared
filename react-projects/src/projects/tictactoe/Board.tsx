@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react"
 import Cell from "./Cell"
 import { useBoardContext } from "./contexts/UseBoardContext";
-import { states } from "./contexts/UseBoardContext"
+import { minimax, states } from "./alg/minimax.ts"
 
 function Board() {
-  const { cells, setCells, analyseBoard, finished, setFinished, setTurn } = useBoardContext()
+  const { cells, setCells, analyseBoard, finished, setFinished, setTurn,turn ,changeTurn} = useBoardContext()
   const [gameState, setGameState] = useState(states.C);
   useEffect(() => {
     const r = analyseBoard(cells);
@@ -27,6 +27,18 @@ function Board() {
       }
     }
   }, [analyseBoard, finished, setFinished, cells])
+  useEffect(()=>{
+    if(turn === "O" && !finished){
+      const r = minimax(cells,states.O)
+      setCells((prevCells) => {
+        const nextCells = [...prevCells];
+        nextCells[r[1]] = turn;
+        return nextCells;
+      });
+      // setTurn("X")
+      changeTurn()
+    }
+  })
   const handleRestart = useCallback(() => {
     setGameState(states.C);
     setCells([

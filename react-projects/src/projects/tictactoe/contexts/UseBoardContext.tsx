@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useState } from "react"
-import { analyseBoard } from "../alg/minimax"
+import { analyseBoard } from "../alg/minimax.ts"
 
 const BoardContext = createContext<{ cells: string[]; setCells: React.Dispatch<React.SetStateAction<string[]>>; changeTurn: () => void; turn: string; analyseBoard: (pos: string[]) => number; finished: boolean; setFinished: React.Dispatch<React.SetStateAction<boolean>>; setTurn: React.Dispatch<React.SetStateAction<string>>; } | null>(null);
 
