@@ -1,6 +1,6 @@
-export const states = {
-  X: -1,
-  O: 1,
+const states = {
+  X: 1,
+  O: -1,
   D: 0,
   C: 100
 }
@@ -14,7 +14,7 @@ const wins = [
   [0, 4, 8],
   [2, 4, 6]
 ]
-export function analyseBoard(pos: string[]): number {
+function analyseBoard(pos: string[]): number {
   for (let i = 0; i < wins.length; i++) {
     const e = wins[i];
     if (pos[e[0]]) {
@@ -29,22 +29,26 @@ export function analyseBoard(pos: string[]): number {
 /*
  * TODO: WHAT SHOULD BE THE RETURN VALUE OF MINIMAX FUNCTION
  */
-export function minimax(pos: string[],turn : number) :[number,number]{
+function minimax(pos: string[],turn : number) :[number,number]{
   const analysis = analyseBoard(pos);
+  
   if((analysis <= 1)){
     return [analysis,-1];
   }
   const empty:number[] = [];
-  pos.every((v,i)=>{
+  pos.forEach((v,i) => {
     if(v === "")
       empty.push(i)
   })
+  // console.log(analysis,empty,turn);
+  
   if(turn === states.X){
     let max = -Infinity;
     let maxPos = -1;
     for(const e of empty){
       const newPos = [...pos];
       newPos[e] = "X"
+      // console.log(newPos);
       const r = minimax(newPos,states.O)
       if(r[0] > max){
         max = r[0]
@@ -70,7 +74,7 @@ export function minimax(pos: string[],turn : number) :[number,number]{
 }
 const pos = [
   "X","","",
-  "X","X","O",
+  "O","X","O",
   "X","O","O"
 ]
 console.log(minimax(pos,states.O));
