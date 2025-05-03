@@ -4,7 +4,7 @@ import { useBoardContext } from "./contexts/UseBoardContext";
 import { minimax, states } from "./alg/minimax.ts"
 
 function Board() {
-  const { cells, setCells, analyseBoard, finished, setFinished, setTurn,turn ,changeTurn} = useBoardContext()
+  const { cells, setCells, analyseBoard, finished, setFinished, setTurn, turn, changeTurn } = useBoardContext()
   const [gameState, setGameState] = useState(states.C);
   useEffect(() => {
     const r = analyseBoard(cells);
@@ -27,18 +27,21 @@ function Board() {
       }
     }
   }, [analyseBoard, finished, setFinished, cells])
-  useEffect(()=>{
-    if(turn === "O" && !finished){
-      const r = minimax(cells,states.O)
-      setCells((prevCells) => {
-        const nextCells = [...prevCells];
-        nextCells[r[1]] = turn;
-        return nextCells;
-      });
-      // setTurn("X")
-      changeTurn()
-    }
-  })
+  useEffect(() => {
+    const id = setTimeout(() => {
+      if (turn === "O" && !finished) {
+        const r = minimax(cells, states.O)
+        setCells((prevCells) => {
+          const nextCells = [...prevCells];
+          nextCells[r[1]] = turn;
+          return nextCells;
+        });
+        // setTurn("X")
+        changeTurn()
+      }
+    }, 500);
+    return () => clearTimeout(id)
+  }, [])
   const handleRestart = useCallback(() => {
     setGameState(states.C);
     setCells([
@@ -49,7 +52,7 @@ function Board() {
   }, [setCells, setGameState, setFinished, setTurn])
   return (
     <>
-      <section className="w-60 h-60 p-2 border border-white bg-emerald-200 grid grid-cols-3 grid-rows-3 gap-2.5 rounded-md shadow-md shadow-blue-200 md:w-[480px] md:h-[480px] lg:w-[720px] lg:h-[720px]">
+      <section className="w-60 h-60 p-2 border border-white bg-emerald-200 grid grid-cols-3 grid-rows-3 gap-2.5 rounded-md shadow-sm shadow-blue-200 md:w-[480px] md:h-[480px] lg:w-[720px] lg:h-[720px]">
         {
           cells.map((cell, i) => {
             return <Cell data={cell} key={i} k={i} />

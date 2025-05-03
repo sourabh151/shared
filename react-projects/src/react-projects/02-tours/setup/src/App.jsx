@@ -3,9 +3,12 @@ import Loading from './Loading'
 import Tours from './Tours'
 import "./index.css"
 import data from "./data.js"
+import "./scripts/scroll-effect.js"
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
 // const url = 'https://course-api.com/react-tours-project'
+
+
 
 function App() {
   const [tours, setTours] = useState(null);
@@ -16,8 +19,8 @@ function App() {
       setTours(data);
     }, 1000)
   }
-  function deleteTour(i){
-    setTours(tours.filter(({id})=> !(i==id)))
+  function deleteTour(i) {
+    setTours(tours.filter(({ id }) => !(i == id)))
   }
   useEffect(() => {
     loadTours();

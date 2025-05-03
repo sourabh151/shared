@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Tour = ({ name, info, image, price, id, deleteTour }) => {
   const portion = info.slice(0, 140) + "...";
   const [hide, setHide] = useState(true);
-  return <article className='single-tour'>
+  return <article className='single-tour scroll-effect' onClick={(e) => {
+    console.log(e.target.getBoundingClientRect())
+  }}>
     <img alt={name} src={image} ></img>
     <footer>
       <div className="tour-info" >
