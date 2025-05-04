@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './react-projects/02-tours/setup/src/App.jsx'
+import App from './components/App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
