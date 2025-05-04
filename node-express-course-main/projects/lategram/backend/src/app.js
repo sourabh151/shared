@@ -8,16 +8,30 @@ const app = express();
 const schema = buildSchema(`
 type Query{
 rollDice(numDice:Int!,sides:Int):[Int]
+frequency:[[Int!]!]
 }
 `)
 
 const root = {
+  r: [],
   rollDice({ numDice, sides }) {
-    let r = []
+    r = []
     for (let i = 0; i < numDice; i++) {
       r.push(Math.floor(Math.random() * (sides || 6)) + 1)
     }
     return r
+  },
+  frequency() {
+    const list = new Map();
+    for (e of r) {
+      if (list.has(e)) {
+        list.set(e, (list.get(e) + 1))
+      }
+      else {
+        list.set(e, 1)
+      }
+    }
+    return Array.from(list)
   }
 }
 
