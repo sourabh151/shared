@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     loadTours();
   }, [])
-  return <main>
+  return <main className="md:w-[100%] px-6 py-4">
     {loading && <Loading />}
     {loading || <Tours tours={tours} deleteTour={deleteTour} />}
     <button className="btn" onClick={() => loadTours()}>reload tours</button>
