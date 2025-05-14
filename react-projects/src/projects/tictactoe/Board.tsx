@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import Cell from "./Cell"
 import { useBoardContext } from "./contexts/UseBoardContext";
 import { minimax, states } from "./alg/minimax.ts"
+import { motion } from "framer-motion"
 
 function Board() {
   const { cells, setCells, analyseBoard, finished, setFinished, setTurn, turn, changeTurn } = useBoardContext()
@@ -39,9 +40,9 @@ function Board() {
         // setTurn("X")
         changeTurn()
       }
-    }, 500);
+    }, 1001);
     return () => clearTimeout(id)
-  }, [])
+  }, [cells, changeTurn, finished, setCells, turn])
   const handleRestart = useCallback(() => {
     setGameState(states.C);
     setCells([
@@ -52,13 +53,16 @@ function Board() {
   }, [setCells, setGameState, setFinished, setTurn])
   return (
     <>
-      <section className="w-60 h-60 p-2 border border-white bg-emerald-200 grid grid-cols-3 grid-rows-3 gap-2.5 rounded-md shadow-sm shadow-blue-200 md:w-[480px] md:h-[480px] lg:w-[720px] lg:h-[720px]">
+      <motion.section className="w-60 h-60 p-2 border border-white bg-emerald-200 grid grid-cols-3 grid-rows-3 gap-2.5 rounded-md shadow-sm shadow-blue-200 md:w-[480px] md:h-[480px] lg:w-[720px] lg:h-[720px]"
+        initial={{ x: "-100vw" }}
+        animate={{ rotateZ: 360, x: 0 }}
+      >
         {
           cells.map((cell, i) => {
             return <Cell data={cell} key={i} k={i} />
           })
         }
-      </section>
+      </motion.section>
       <div className="w-full h-24 flex items-center justify-around flex-col bg-blue-200 shadow-md shadow-emerald-200 border border-white">
         <p>
           {
