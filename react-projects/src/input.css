@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* fonts for project */
+/* fonts for project interactive-comments-section*/
 /*@font-face {*/
 /*	font-family: Rubik;*/
 /*	font-style: normal;*/
@@ -26,6 +26,7 @@
 /*	font-display: swap;*/
 /*	src: url("/src/projects/interactive-comments-section/fonts/Rubik-Bold.ttf") format("ttf");*/
 /*}*/
+/**/
 /*.dark-mode-colors-light{*/
 /*  --bgColor:rgba(255,255,255);*/
 /*  --accentColor:rgba(210,53,103);*/
@@ -74,3 +75,18 @@
 /*  animation: appear 1s forwards;*/
 /*}*/
 /*TicTacToe*/
+
+/*lategram*/
+.lategram_light {
+  --primary: #B69D87;
+  --primary_text: #0F0B0B;
+  --primary_accent: #4B0E20;
+}
+
+.lategram_dark {
+  --primary: #0F0B0B;
+  --primary_text: #B69D87;
+  --primary_accent: #4B0E20;
+}
+
+/*lategram*/

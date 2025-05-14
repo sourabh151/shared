@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        myBg: "var(--bgColor)",
-        myAccent: "var(--accentColor)",
-        myText: "var(--textColor)"
+        primary: "var(--primary)",
+        primary_accent: "var(--primary_accent)",
+        primary_text: "var(--primary_text)"
       }
     },
   },

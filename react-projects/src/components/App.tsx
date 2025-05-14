@@ -1,12 +1,13 @@
-import Lorem from "./Lorem"
-import Navbar from "./Navbar"
+import ReducerTest from "./ReducerTest"
+import UseReducer from "./contexts/UseReducer.tsx"
 
 function App() {
   return (
-    <div className="w-screen text-white bg-slate-900">
-      <Navbar />
-      <Lorem para={500} maxWords={10} />
-    </div>
+    <UseReducer>
+      <div className="w-screen h-screen flex items-center justify-center">
+        <ReducerTest />
+      </div>
+    </UseReducer>
   )
 }
 
