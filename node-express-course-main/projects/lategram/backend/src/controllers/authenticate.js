@@ -9,7 +9,12 @@ async function login(req, res) {
     throw new BadRequestError("user does not exist")
   if (!bcryptjs.compareSync(req.body.password, checkUser.password))
     throw new BadRequestError("incorrect password")
-  const token = jwt.sign(checkUser._id.toString(), process.env.SECRET_KEY)
+  const tokenData = {
+    username:checkUser.username,
+    id: checkUser._id,
+    exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
+  }
+  const token = jwt.sign(tokenData, process.env.SECRET_KEY)
   console.log(token)
   res.json({ success: true, token: token })
 }
@@ -20,7 +25,12 @@ async function signup(req, res) {
     password: password
   })
   await user.save();
-  const token = jwt.sign(user._id.toString(), process.env.SECRET_KEY)
+  const tokenData = {
+    username:user.username,
+    id: user._id,
+    exp: Math.floor(Date.now() / 1000) + (60 * 60),
+  }
+  const token = jwt.sign(tokenData, process.env.SECRET_KEY)
   res.json({ success: true, token: token })
 }
 module.exports = { login, signup }

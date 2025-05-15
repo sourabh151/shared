@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express()
 const mongoose = require("mongoose")
+const cors = require("cors")
 require("dotenv").config()
+
 
 const authenticationRouter = require("./routes/authenticate.js")
 const authorize = require("./routes/authorize.js")
@@ -9,14 +11,15 @@ const messageRouter = require("./routes/messages.js");
 const errorHandler = require("./middleware/errorHandler.js");
 const notFound = require("./middleware/notFound.js");
 
-
+//cors
+app.use(cors())
 //bodyparser
 app.use(express.json())
 
 //logger
 app.use((req, res, next) => {
-  console.log(req.url)
-  //console.log()
+  console.log(req.url,req.method)
+  console.log(req.body)
   next()
 })
 

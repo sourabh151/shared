@@ -4,27 +4,31 @@ function RegistrationPage() {
   const username = useRef<HTMLInputElement>(null)
   const password = useRef<HTMLInputElement>(null)
   function handleClick() {
-    (async () => {
-      try {
-        if (username.current && password.current) {
-          const url = `http://localhost:5000/authenticate/${isLogin ? "login" : "signup"}`
-          const data = await fetch(url, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              "username": username.current.value,
-              "password": password.current.value
+    try {
+      const res = (async () => {
+        try {
+          if (username.current && password.current) {
+            const url = `http://localhost:5000/authenticate/${isLogin ? "login" : "signup"}`
+            const data = await fetch(url, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                "username": username.current.value,
+                "password": password.current.value
+              })
             })
-          })
-          const result = await data.json()
-          console.log(result.token);
+            const result = await data.json()
+          }
+        } catch (error) {
+          console.log(error);
         }
-      } catch (error) {
-        console.log(error);
-      }
-    })()
+      })()
+    } catch (error) {
+      console.log(error);
+    }
+
   }
   return (
     <div className="mx-4 w-full border border-neutral-800 rounded-md p-2 bg-primary text-primary_accent"
