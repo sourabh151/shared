@@ -1,11 +1,15 @@
 import { useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { useUserContext } from "./contexts/UserContext"
 function RegistrationPage() {
+  const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(true)
   const username = useRef<HTMLInputElement>(null)
   const password = useRef<HTMLInputElement>(null)
+  const { setUserData } = useUserContext()
   function handleClick() {
     try {
-      const res = (async () => {
+      (async () => {
         try {
           if (username.current && password.current) {
             const url = `http://localhost:5000/authenticate/${isLogin ? "login" : "signup"}`
@@ -19,7 +23,13 @@ function RegistrationPage() {
                 "password": password.current.value
               })
             })
+            console.log(data);
             const result = await data.json()
+            if (result.success) {
+              setUserData(result)
+              localStorage.setItem("user", JSON.stringify(result));
+              navigate("/home")
+            }
           }
         } catch (error) {
           console.log(error);

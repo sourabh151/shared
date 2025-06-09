@@ -10,13 +10,12 @@ async function login(req, res) {
   if (!bcryptjs.compareSync(req.body.password, checkUser.password))
     throw new BadRequestError("incorrect password")
   const tokenData = {
-    username:checkUser.username,
     id: checkUser._id,
     exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
   }
   const token = jwt.sign(tokenData, process.env.SECRET_KEY)
   console.log(token)
-  res.json({ success: true, token: token })
+  res.json({ success: true, token: token, username: checkUser.username, })
 }
 async function signup(req, res) {
   const password = bcryptjs.hashSync(req.body.password)
@@ -26,11 +25,11 @@ async function signup(req, res) {
   })
   await user.save();
   const tokenData = {
-    username:user.username,
+    username: user.username,
     id: user._id,
-    exp: Math.floor(Date.now() / 1000) + (60 * 60),
+    exp: Math.floor(Date.now() / 1000) + (30 * 24 * 60 * 60),
   }
   const token = jwt.sign(tokenData, process.env.SECRET_KEY)
-  res.json({ success: true, token: token })
+  res.json({ success: true, token: token, username: req.body.username })
 }
 module.exports = { login, signup }
