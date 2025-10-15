@@ -19,7 +19,7 @@ function App() {
   return (
     <main className='w-screen h-screen flex items-center justify-center bg-slate-500'>
 
-      <div className={`w-[270px] h-[270px] grid grid-rows-10 grid-cols-10 gap-2 bg-slate-300 ps-1 py-0.5 shadow-md shadow-slate-600`}>
+      <div className={`w-[270px] h-[270px] grid grid-rows-10 grid-cols-10 gap-2 bg-slate-300 ps-1 py-0.5 shadow-md `}>
         {
           cells.map((row) => {
             return <> {
